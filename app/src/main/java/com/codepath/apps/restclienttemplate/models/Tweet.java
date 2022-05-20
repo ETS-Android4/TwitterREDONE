@@ -35,6 +35,12 @@ public class Tweet {
     @ColumnInfo
     public String tweet_URL;
 
+    @ColumnInfo
+    public boolean retweeted;
+
+    @ColumnInfo
+    public boolean liked;
+
     @Ignore
     public User user;
 
@@ -47,6 +53,8 @@ public class Tweet {
             tweet.body = jsonObject.getString("full_text");
         else
             tweet.body = jsonObject.getString("text");
+        tweet.retweeted = jsonObject.getBoolean("retweeted");
+        tweet.liked = jsonObject.getBoolean("favorited");
         tweet.createdAt = jsonObject.getString("created_at");
         tweet.id=jsonObject.getLong("id");
         User user=User.fromJson(jsonObject.getJSONObject("user"));
