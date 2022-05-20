@@ -37,6 +37,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.Headers;
+import ru.noties.scrollable.CanScrollVerticallyDelegate;
+import ru.noties.scrollable.ScrollableLayout;
 
 public class TimelineActivity extends AppCompatActivity implements ComposeFragment.TweetListener {
     public static final String TAG="TIMELINEACTIVITY";
@@ -49,6 +51,7 @@ public class TimelineActivity extends AppCompatActivity implements ComposeFragme
     TweetsAdapter adapter;
     MenuItem progressBar;
     LinearLayoutManager layoutManager;
+
     ComposeFragment composeDialogFragment;
     SwipeRefreshLayout swipeRefreshLayout;
     EndlessRecyclerViewScrollListener scrollListener;
@@ -128,6 +131,7 @@ public class TimelineActivity extends AppCompatActivity implements ComposeFragme
 
             }
         });
+
     }
 
     private void loadMoreData() {

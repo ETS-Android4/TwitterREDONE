@@ -26,11 +26,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.Headers;
+import ru.noties.scrollable.CanScrollVerticallyDelegate;
+import ru.noties.scrollable.ScrollableLayout;
 
 public class FollowActivity extends AppCompatActivity {
     public  static final String TAG="FollowActivity";
     User user;
     ActivityFollowBinding binding;
+    ScrollableLayout scrollableLayout;
     TwitterClient client;
     List<User> userList;
     FollowAdapter adapter;
@@ -48,6 +51,7 @@ public class FollowActivity extends AppCompatActivity {
         user=Parcels.unwrap(getIntent().getParcelableExtra("user"));
 
         rvFollow=binding.rvFollow;
+        scrollableLayout=findViewById(R.id.scrollable_layout);
         client=TwitterApp.getRestClient(this);
         userList=new ArrayList<>();
         adapter=new FollowAdapter(this, userList);
@@ -72,6 +76,18 @@ public class FollowActivity extends AppCompatActivity {
                     binding.tvFollow.setText("Following");
                     loadFollowing();
                 }
+            }
+        });
+
+        scrollableLayout.setCanScrollVerticallyDelegate(new CanScrollVerticallyDelegate() {
+            @Override
+            public boolean canScrollVertically(int direction) {
+                // Obtain a View that is a scroll container (RecyclerView, ListView, ScrollView, WebView, etc)
+                // and call its `canScrollVertically(int) method.
+                // Please note, that if `ViewPager is used, currently displayed View must be obtained
+                // because `ViewPager` doesn't delegate `canScrollVertically` method calls to it's children
+                final View view = rvFollow;
+                return view.canScrollVertically(direction);
             }
         });
         binding.tvFollow.setText("Following");

@@ -49,6 +49,7 @@ public class TweetDetailsActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(int statusCode, Headers headers, String response, Throwable throwable) {
                         Log.e(TAG,"Could not fetch tweet "+throwable.toString());
+                        Toast.makeText(TweetDetailsActivity.this,"Could not like tweet",Toast.LENGTH_LONG).show();
                     }
                 });
             }
@@ -65,6 +66,7 @@ public class TweetDetailsActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(int statusCode, Headers headers, String response, Throwable throwable) {
+                        Toast.makeText(TweetDetailsActivity.this,"Could not be retweeted",Toast.LENGTH_LONG).show();
                         Log.e(TAG,"Could not retweet "+throwable.toString());
                     }
                 });

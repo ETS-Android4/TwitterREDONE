@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,33 +7,50 @@
     android:layout_height="match_parent"
     tools:context=".FollowActivity">
 
-    <ImageView
-        android:id="@+id/ivPF"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="36dp"
-        app:layout_constraintEnd_toEndOf="parent"
+
+    <ru.noties.scrollable.ScrollableLayout
+        android:id="@+id/scrollable_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:scrollable_autoMaxScroll="true"
+        app:scrollable_defaultCloseUp="true">
 
-    <TextView
-        android:id="@+id/tvFollow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        android:text="Following"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivPF" />
+        <ImageView
+            android:id="@+id/ivPF"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="36dp"
+            android:background="@color/twitter_blue"
+            android:backgroundTint="@color/twitter_blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvFollow"
-        android:layout_width="409dp"
-        android:layout_height="525dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvFollow" />
+        <TextView
+            android:id="@+id/tvFollow"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="21dp"
+            android:background="#00BCD4"
+            android:gravity="center"
+            android:text="Following"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivPF" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFollow"
+            android:layout_width="409dp"
+            android:layout_height="525dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFollow" />
+    </ru.noties.scrollable.ScrollableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
