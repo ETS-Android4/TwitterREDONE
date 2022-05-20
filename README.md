@@ -55,7 +55,7 @@ Here's a walkthrough of implemented user stories:
 <img src='Twitter4.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
-GIF created with [Kap](https://getkap.co/).
+GIF created with LICEcap
 
 ## Notes
 
