@@ -33,6 +33,8 @@ public class TweetDetailsActivity extends AppCompatActivity {
         binding.tvScreenName.setText(tweet.user.screenName);
         binding.tvBody.setText(tweet.body);
         binding.tvDate.setText(tweet.createdAt);
+        binding.tvReweetCountDetails.setText(""+tweet.numRetweets);
+        binding.tvLikeCountDetails.setText(""+tweet.numLikes);
         Glide.with(this).load(tweet.tweet_URL).into(binding.ivTweet);
         Glide.with(this).load(tweet.user.publicImageUrl).into(binding.ivProfileImage);
 
@@ -58,6 +60,8 @@ public class TweetDetailsActivity extends AppCompatActivity {
                         public void onSuccess(int statusCode, Headers headers, JSON json) {
                             Toast.makeText(TweetDetailsActivity.this,"Tweet Liked",Toast.LENGTH_LONG).show();
                             tweet.liked=true;
+                            tweet.numLikes+=1;
+                            binding.tvLikeCountDetails.setText(""+tweet.numLikes);
                             setLikeColor();
                         }
 
@@ -74,6 +78,8 @@ public class TweetDetailsActivity extends AppCompatActivity {
                         public void onSuccess(int statusCode, Headers headers, JSON json) {
                             Toast.makeText(TweetDetailsActivity.this,"Tweet unliked",Toast.LENGTH_LONG).show();
                             tweet.liked=false;
+                            tweet.numLikes-=1;
+                            binding.tvLikeCountDetails.setText(""+tweet.numLikes);
                             setNotLikeColor();
                         }
                         @Override
@@ -97,6 +103,8 @@ public class TweetDetailsActivity extends AppCompatActivity {
                         public void onSuccess(int statusCode, Headers headers, JSON json) {
                             Toast.makeText(TweetDetailsActivity.this,"Tweet retweeted",Toast.LENGTH_LONG).show();
                             tweet.retweeted=true;
+                            tweet.numRetweets+=1;
+                            binding.tvReweetCountDetails.setText(""+tweet.numRetweets);
                             setRetweetColor();
                         }
 
@@ -114,6 +122,8 @@ public class TweetDetailsActivity extends AppCompatActivity {
                         public void onSuccess(int statusCode, Headers headers, JSON json) {
                             Toast.makeText(TweetDetailsActivity.this,"Tweet unretweeted",Toast.LENGTH_LONG).show();
                             tweet.retweeted=false;
+                            tweet.numRetweets-=1;
+                            binding.tvReweetCountDetails.setText(""+tweet.numRetweets);
                             setNotRetweetColor();
                         }
 

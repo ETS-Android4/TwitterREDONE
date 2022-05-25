@@ -79,7 +79,7 @@
         android:id="@+id/ibReply"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="5dp"
         android:background="#FFFFFF"
         android:src="@drawable/ic_vector_compose_dm"
@@ -93,7 +93,7 @@
         android:layout_marginStart="80dp"
         android:layout_marginTop="5dp"
         android:background="#FFFFFF"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintStart_toEndOf="@+id/ibReply"
         app:layout_constraintTop_toBottomOf="@+id/ivTweet"
         app:srcCompat="@drawable/ic_vector_retweet" />
@@ -105,8 +105,26 @@
         android:layout_marginStart="80dp"
         android:layout_marginTop="4dp"
         android:background="#FDFDFD"
-        android:visibility="invisible"
+        android:visibility="visible"
         app:layout_constraintStart_toEndOf="@+id/ibRetweet"
         app:layout_constraintTop_toBottomOf="@+id/ivTweet"
         app:srcCompat="@android:drawable/btn_star" />
+
+    <TextView
+        android:id="@+id/tvRetweetCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/ibRetweet"
+        app:layout_constraintTop_toBottomOf="@+id/ivTweet" />
+
+    <TextView
+        android:id="@+id/tvLikeCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/ibFavorite"
+        app:layout_constraintTop_toBottomOf="@+id/ivTweet" />
 </androidx.constraintlayout.widget.ConstraintLayout>
